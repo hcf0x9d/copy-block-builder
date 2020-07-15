@@ -1,1 +1,5 @@
-This is just me testing my text files now.
+Hello,
+
+My name is Jason Fukura, and I'm interested in talking with you more about the {{ position }} role that you have at {{ company }}.
+
+A natural problem solver and tinkerer, I love to find ways to make things work better to help people. Whether it's User Experience Design, building a brand presence and style, or helping lead an SEO push, anything design related is approached from a user-psychology and best practices first. From there, I have experience taking designs into prototypes and providing production-ready content.

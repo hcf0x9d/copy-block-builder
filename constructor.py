@@ -24,8 +24,6 @@ class BuildCoverLetter:
         self._design = False
         self._tc = TermColors()
 
-        self._input_company = ''
-        self._input_job = ''
         self._input_valprop = ''
         self._type_uxd = {
             "question": " Is this a UX focused job?",
@@ -60,11 +58,11 @@ class BuildCoverLetter:
 
     def identify_job(self):
         # Ask for name of company
-        self._input_company = input(self._tc.colorize(
+        self._company = input(self._tc.colorize(
             _content=" What is the name of the company?"))
 
         # Ask for job title
-        self._input_job = input(self._tc.colorize(
+        self._title = input(self._tc.colorize(
             _content=" What is the job title?"))
 
         def _boolean_question(option):
@@ -83,14 +81,15 @@ class BuildCoverLetter:
         _boolean_question(self._type_dev)
         _boolean_question(self._type_des)
 
-        self._input_valprop = input(self._tc.colorize(
-_content=" Provide a brief closing statement: "))
         self.build_output()
 
     def build_output(self):
         _content = []
         with open("intro.txt", "r", encoding="utf-8") as input_file:
-            _content.append(input_file.read())
+            _copy = input_file.read()
+            _copy = _copy.replace('{{ company }}', self._company)
+            _copy = _copy.replace('{{ position }}', self._title)
+            _content.append(_copy)
 
         if self._type_uxd['answer'] is True:
             with open("uxd.txt", "r", encoding="utf-8") as input_file:
@@ -107,8 +106,9 @@ _content=" Provide a brief closing statement: "))
         with open("closing.txt", "r", encoding="utf-8") as input_file:
             _content.append(input_file.read())
 
-        ctypes.windll.user32.MessageBoxW(0, "\n".join(_content),
-                                         "Cover Letter", 0)
+        print("\n".join(_content))
+        # ctypes.windll.user32.MessageBoxW(0, "\n".join(_content),
+        #                                  "Cover Letter", 0)
         pass
 
 
