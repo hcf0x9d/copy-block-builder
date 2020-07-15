@@ -8,7 +8,11 @@ This project, while initially developed to build my cover letters for job huntin
 - Adjust the content to your needing (in the .txt files)
 - Run in terminal with `$ python constructor.py`
 - The terminal will ask a series of questions and build the cover letter
-- Requires Python 3.7+
+- Output prints in the terminal for now
+
+TODO: Output to an easier space for copying/pasting, and consider output to file. 
+
+**Requires Python 3.7+**
 
 ## Contributing
 
