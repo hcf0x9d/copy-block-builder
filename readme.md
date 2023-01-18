@@ -2,11 +2,29 @@
 
 This project, while initially developed to build my cover letters for job hunting, can be used to build any sort of canned responses that you would need with variable content.
 
+```
+copy-block-builder
+├── README.md
+├── requirements.txt
+├── coverlettermajig.py
+├── data
+|   ├── __init__.py
+|   ├── data.py         // Not setup yet
+|   └── content 
+|       ├── closing.txt // The closing paragraphs and signature
+|       ├── des.txt     // UI and Brand Design specific content
+|       ├── dev.txt     // Developer specific content
+|       ├── intro.txt   // Introduction paragraph including customizable valprop
+|       └── uxd.txt     // UX Design specific content
+└── tests
+    └── ...
+```
+
 ## Installation & Usage
 
 - Download
 - Adjust the content to your needing (in the .txt files)
-- Run in terminal with `$ python constructor.py`
+- Run in terminal with `$ python coverlettermajig.py`
 - The terminal will ask a series of questions and build the cover letter
 - Output prints in the terminal for now
 

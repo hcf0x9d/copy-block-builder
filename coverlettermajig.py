@@ -12,7 +12,6 @@ class TermColors:
 
 
 class BuildCoverLetter:
-
     def __init__(self):
         self._company = None
         self._title = None
@@ -109,7 +108,7 @@ class BuildCoverLetter:
 
     def build_output(self):
         _content = []
-        with open("../data/intro.txt", "r", encoding="utf-8") as input_file:
+        with open("data/content/content_intro.txt", "r", encoding="utf-8") as input_file:
             _copy = input_file.read()
             _copy = _copy.replace('{{ salutation }}', self._salutation)
             _copy = _copy.replace('{{ company }}', self._company)
@@ -118,18 +117,18 @@ class BuildCoverLetter:
             _content.append(_copy)
 
         if self._type_uxd['answer'] is True:
-            with open("../data/uxd.txt", "r", encoding="utf-8") as input_file:
+            with open("data/content/content_experiencedesign.txt", "r", encoding="utf-8") as input_file:
                 _content.append(input_file.read())
 
         if self._type_dev['answer'] is True:
-            with open("../data/dev.txt", "r", encoding="utf-8") as input_file:
+            with open("data/content/content_development.txt", "r", encoding="utf-8") as input_file:
                 _content.append(input_file.read())
 
         if self._type_des['answer'] is True:
-            with open("../data/des.txt", "r", encoding="utf-8") as input_file:
+            with open("data/content/content_design.txt", "r", encoding="utf-8") as input_file:
                 _content.append(input_file.read())
 
-        with open("../data/closing.txt", "r", encoding="utf-8") as input_file:
+        with open("data/content/content_outro.txt", "r", encoding="utf-8") as input_file:
             _content.append(input_file.read())
 
         print("\n".join(_content))
