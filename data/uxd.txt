@@ -1,0 +1,3 @@
+As a User Experience practitioner, I focus on standard, well-tested design and psychology patterns instead of "clever" or "avant-garde" designs. The goal is always to be user-centric with a careful eye on a11y and i18n requirements. While most of my UX experience has been based around B2B SaaS environments, I do also have some experience in B2C and mobile native applications as well.
+
+Prototyping in code is my preferred route as it provides a more realistic environment for the user, making user testing far more insightful. However, I have experience in different levels of prototyping through applications from intentionally low-definition programs like Balsamiq or MockFlow to Figma, ProtoPie, and the like.

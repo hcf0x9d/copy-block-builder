@@ -1,5 +1,0 @@
-As a designer turned developer, I have a unique understanding of how the two sides of the team work. Familiar with the development process and the design process, I can act as a bridge between the two groups and help clarify the confusion. It is also easier for me to take designs and convert them to front-end codes with attention to detail. While I have experience working in React and Angular, as well as libraries like D3 and jQuery, I prefer to use Vanilla JavaScript and the capabilities of CSS to build my front-end experiences. Depending on the project, I may choose to use Object-Oriented, MV* patterns, functional programming, or procedural.
-
-I have certification in front-end and full-stack web development through Udacity and find most of my projects to be based around Python (Flask for the web) with JavaScript and SCSS on the front.  Along with Python, I am familiar with PHP, SQL, MySQL, PostgreSQL, and SQLite.
-
-My work history has included developing everything from web landing page experiences to web applications solely based on custom coded JavaScript, corporate website development, mobile apps, and full-stack web applications.
