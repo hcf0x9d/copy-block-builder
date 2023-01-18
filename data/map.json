@@ -1,0 +1,20 @@
+{
+  "uxd": {
+    "type": "boolean",
+    "question": "Is this a UX focused job?",
+    "answer": false,
+    "file": "content_experiencedesign.txt"
+  },
+  "dev": {
+    "type": "boolean",
+    "question": "Is this a development focused job?",
+    "answer": false,
+    "file": "content_development.txt"
+  },
+  "design": {
+    "type": "boolean",
+    "question": "Is this a design focused job?",
+    "answer": false,
+    "file": "content_design.txt"
+  }
+}

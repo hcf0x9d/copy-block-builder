@@ -1,3 +1,5 @@
+import json
+
 class TermColors:
     def colorize(self, _type: str = 'info', _content: str = ''):
         _colors = {
@@ -12,38 +14,13 @@ class TermColors:
 
 
 class BuildCoverLetter:
-    def __init__(self):
+
+    def __init__(self, mapping):
         self._company = None
         self._title = None
         self._closing = None
-        self._dev = False
-        self._ux = False
-        self._design = False
         self._tc = TermColors()
-        self._custom_salutation = {
-            "question": " Do you know the name of the person you are contacting (Default: \"hiring manager\")? (y/N) ",
-            "answer": False
-        }
-        self._salutation = "hiring manager"
-        self._input_valprop = {
-            "question": " Do you want to customize the valprop? (y/N) ",
-            "answer": False
-        }
-        self._default_valprop = "With a deep understanding of the problem-solving process from start to finish"
-        self._additional_intro = False
-        self._type_uxd = {
-            "question": " Is this a UX focused job? (y/N) ",
-            "answer": False
-        }
-        self._type_dev = {
-            "question": " Is this a development focused job? (y/N) ",
-            "answer": False
-        }
-        self._type_des = {
-            "question": " Is this a design focused job? (y/N) ",
-            "answer": False
-        }
-
+        self._mapping = mapping
         self._intro_art = " ______  __ __    ___      __ __  __ __  ____   " \
                           "______\n|      ||  |  |  /  _]    |  |  ||  |  ||" \
                           "    \ |      |\n|      ||  |  | /  [_     |  |  ||" \
@@ -55,6 +32,19 @@ class BuildCoverLetter:
                           "                                                   "
         self._intro_title = "                 Coverlettermajig               " \
                             "       "
+
+        self._custom_salutation = {
+            "question": "Do you know the name of the person you are contacting (Default: \"hiring manager\")?",
+            "answer": False
+        }
+        self._salutation = "hiring manager"
+        self._input_valprop = {
+            "question": "Do you want to customize the valprop?",
+            "answer": False
+        }
+        self._default_valprop = "With a deep understanding of the problem-solving process from start to finish, my " \
+                                "recent job experience and education make me confident in applying for this position."
+
         # Initializing prints the intro art
         print('\n')
         print(self._intro_art)
@@ -65,7 +55,7 @@ class BuildCoverLetter:
     def identify_job(self):
         def _boolean_question(option):
             while True:
-                _ans = input(self._tc.colorize(_content=option["question"]))
+                _ans = input(self._tc.colorize(_content=option["question"] + " (y/N) "))
                 break
 
             if _ans == '':
@@ -79,17 +69,17 @@ class BuildCoverLetter:
 
         # Ask for name of company
         self._company = input(self._tc.colorize(
-            _content=" What is the name of the company? "))
+            _content="What is the name of the company? "))
 
         # Ask for job title
         self._title = input(self._tc.colorize(
-            _content=" What is the job title? "))
+            _content="What is the job title? "))
 
         _boolean_question(self._custom_salutation)
         if self._custom_salutation["answer"]:
             # Ask to customize the salutation
             self._salutation = input(self._tc.colorize(
-                _content=" What's the name of the person you are contacting? "
+                _content="What's the name of the person you are contacting? "
             ))
 
         _boolean_question(self._input_valprop)
@@ -97,12 +87,15 @@ class BuildCoverLetter:
         if self._input_valprop["answer"]:
             # Ask to customize the intro
             self._default_valprop = input(self._tc.colorize(
-                _content=" Change the valprop here (this will be the first part of a comma-separated clause) "
+                _content="Change the valprop here (this will be the first part of a comma-separated clause) "
             ))
 
-        _boolean_question(self._type_uxd)
-        _boolean_question(self._type_dev)
-        _boolean_question(self._type_des)
+        for i in self._mapping:
+            _boolean_question(self._mapping[i])
+
+        # _boolean_question(self._type_uxd)
+        # _boolean_question(self._type_dev)
+        # _boolean_question(self._type_des)
 
         self.build_output()
 
@@ -113,20 +106,24 @@ class BuildCoverLetter:
             _copy = _copy.replace('{{ salutation }}', self._salutation)
             _copy = _copy.replace('{{ company }}', self._company)
             _copy = _copy.replace('{{ position }}', self._title)
-            _copy = _copy.replace('{{ additional_intro }}', self._default_valprop)
+            _copy = _copy.replace('{{ valprop }}', self._default_valprop)
             _content.append(_copy)
 
-        if self._type_uxd['answer'] is True:
-            with open("data/content/content_experiencedesign.txt", "r", encoding="utf-8") as input_file:
-                _content.append(input_file.read())
-
-        if self._type_dev['answer'] is True:
-            with open("data/content/content_development.txt", "r", encoding="utf-8") as input_file:
-                _content.append(input_file.read())
-
-        if self._type_des['answer'] is True:
-            with open("data/content/content_design.txt", "r", encoding="utf-8") as input_file:
-                _content.append(input_file.read())
+        for i in self._mapping:
+            if self._mapping[i]["answer"]:
+                with open("data/content/" + self._mapping[i]["file"], "r", encoding="utf-8") as input_file:
+                    _content.append(input_file.read())
+        # if self._type_uxd['answer'] is True:
+        #     with open("data/content/content_experiencedesign.txt", "r", encoding="utf-8") as input_file:
+        #         _content.append(input_file.read())
+        #
+        # if self._type_dev['answer'] is True:
+        #     with open("data/content/content_development.txt", "r", encoding="utf-8") as input_file:
+        #         _content.append(input_file.read())
+        #
+        # if self._type_des['answer'] is True:
+        #     with open("data/content/content_design.txt", "r", encoding="utf-8") as input_file:
+        #         _content.append(input_file.read())
 
         with open("data/content/content_outro.txt", "r", encoding="utf-8") as input_file:
             _content.append(input_file.read())
@@ -138,5 +135,7 @@ class BuildCoverLetter:
 
 
 if __name__ == "__main__":
-    cover = BuildCoverLetter()
+    f = open("./data/map.json")
+    mapping = json.load(f)
+    cover = BuildCoverLetter(mapping)
     cover.identify_job()

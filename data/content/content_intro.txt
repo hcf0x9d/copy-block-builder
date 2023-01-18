@@ -1,5 +1,5 @@
 Dear {{ salutation }},
 
-I want to introduce myself as a candidate for the {{ position }} position at {{ company }}. {{ additional_intro }}, my recent job experience and education make me confident in applying for this position.
+I want to introduce myself as a candidate for the {{ position }} position at {{ company }}. {{ valprop }}.
 
 By designing from a foundation of ISO standards and best practices, I aim to create the artifacts required to test hypotheses and validate products before they go to market. My superpower is that I can take a concept from requirements gathering and information architecture, user flow diagrams, wireframes, and rapid prototyping in code—front-end or full-stack. I also have experience taking these designs and prototypes into complete production-ready code.

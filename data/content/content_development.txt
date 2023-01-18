@@ -1,3 +1,5 @@
-Recently at Medable, I have assisted in creating a design system. Though partially based on TailwindCSS, we worked hard to make the system more bespoke by creating color palettes that were more a11y friendly. During this process, we also had to ensure our components were prepared for i18n requirements, including everything from RTL language support and sensitivity towards different cultures as I designed our icon set and color use guidelines.
+As a designer turned developer, I have a unique understanding of how the two sides of the team work together. Familiar with the development and design processes, I bridge the two groups and help clarify the confusion. It is also easier for me to take designs and convert them to front-end code with the attention to detail a designer would be looking for. 
 
-During my career, I have also had the opportunity to work heavily in logo design, brand guidelines, and brand management. 
+I have experience working with Object-Oriented and MV* patterns in vanilla JavaScript, but I am also familiar with React and TypeScript and libraries like D3.js.
+
+Along with my certification in front-end web development, I have also received the full-stack web development certification. My server-side development environments generally revolve around Python, though I am familiar with PHP, Elixir, SQL, MySQL, PostgreSQL, and SQLite.
